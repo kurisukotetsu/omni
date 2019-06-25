@@ -186,6 +186,10 @@ class AwsMechanismDriver(api.MechanismDriver):
                     raise NetworkWithMultipleAZs()
                 aws_az = network_az_hints[0]
             else:
+                aws_az = cfg.CONF.AWS.az
+                LOG.info("AZ details missing in context, so fetching from the"
+                         " conf file. aws_az: %s", aws_az)
+            if aws_az is None:
                 raise AzNotProvided()
             self._validate_az(aws_az)
             ec2_subnet_id = self.aws_utils.create_subnet_and_tags(
@@ -209,8 +213,20 @@ class AwsMechanismDriver(api.MechanismDriver):
         if ',' in aws_az:
             raise NetworkWithMultipleAZs()
         session = self.aws_utils.get_keystone_session()
-        azmgr_url = session.get_endpoint(service_type='azmanager',
-                                         region_name=cfg.CONF.nova_region_name)
+        azmgr_url = ''
+        try:
+            azmgr_url = session.get_endpoint(service_type='azmanager',
+                                             region_name=cfg.CONF.nova_region_name)
+            if not (azmgr_url and azmgr_url.strip()):
+                LOG.warning("AZ manager endpoint not found. Proceeding without"
+                            " validating the AZ information. Error: "
+                            "None or empty endpoint found.")
+                return
+        except Exception as e:
+            LOG.error("Error in finding AZ manager endpoint. "
+                      "Proceeding without validating the AZ information. "
+                      "Error: %s" % e)
+            return
         zones = self._send_request(session, azmgr_url)
         if aws_az not in zones:
             LOG.error("Provided az %s not found in zones %s", aws_az, zones)
