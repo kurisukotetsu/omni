@@ -62,7 +62,7 @@ function install_dependencies {
     -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike \
     -r $OMNI_DATA_DIR/creds_manager/requirements.txt
 
-    cp -r $OMNI_DATA_DIR/credsmgrclient $CREDSMGR_DIR/lib/python2.?/site-packages/
+    cp -r $OMNI_DATA_DIR/credsmgrclient $CREDSMGR_DIR/lib/python3.?/site-packages/
 
     cd $OMNI_DATA_DIR/creds_manager
     $CREDSMGR_DIR/bin/python setup.py install
