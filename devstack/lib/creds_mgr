@@ -59,7 +59,7 @@ function install_dependencies {
 
     export PBR_VERSION=1.8.1
     $CREDSMGR_DIR/bin/python $CREDSMGR_DIR/bin/pip install \
-    -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/newton \
+    -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike \
     -r $OMNI_DATA_DIR/creds_manager/requirements.txt
 
     cp -r $OMNI_DATA_DIR/credsmgrclient $CREDSMGR_DIR/lib/python2.?/site-packages/
