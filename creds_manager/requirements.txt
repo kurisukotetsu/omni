@@ -4,7 +4,6 @@ eventlet
 keystoneauth1
 keystonemiddleware
 greenlet
-MySQL-python
 pymysql
 oslo.config
 oslo.concurrency
