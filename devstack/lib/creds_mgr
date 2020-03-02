@@ -20,7 +20,7 @@ FERNET_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1
 function install_credsmgr {
     install_dependencies
 
-    sudo cp -R $OMNI_DATA_DIR/creds_manager/credsmgr $CREDSMGR_DIR/lib/python2.?/site-packages/
+    sudo cp -R $OMNI_DATA_DIR/creds_manager/credsmgr $CREDSMGR_DIR/lib/python3.?/site-packages/
     sudo cp -R $OMNI_DATA_DIR/creds_manager/etc/* /etc/
 
     # Remove the default credsmgr.conf and write the file afresh.
