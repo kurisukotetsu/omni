@@ -17,4 +17,4 @@ oslo.service
 SQLAlchemy
 sqlalchemy-migrate
 webob
-cryptography
+cryptography===2.8
