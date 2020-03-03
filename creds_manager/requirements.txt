@@ -17,4 +17,5 @@ oslo.service
 SQLAlchemy
 sqlalchemy-migrate
 webob
+pycparser===2.13
 cryptography===2.9
