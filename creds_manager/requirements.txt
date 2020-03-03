@@ -17,4 +17,4 @@ oslo.service
 SQLAlchemy
 sqlalchemy-migrate
 webob
-cryptography===2.8
+cryptography===2.8;python_version=='3.7'
