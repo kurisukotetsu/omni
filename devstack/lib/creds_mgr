@@ -20,7 +20,7 @@ FERNET_PASSWORD=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1
 function install_credsmgr {
     install_dependencies
 
-    sudo cp -R $OMNI_DATA_DIR/creds_manager/credsmgr $CREDSMGR_DIR/lib/python2.?/site-packages/
+    sudo cp -R $OMNI_DATA_DIR/creds_manager/credsmgr $CREDSMGR_DIR/lib/python3.?/site-packages/
     sudo cp -R $OMNI_DATA_DIR/creds_manager/etc/* /etc/
 
     # Remove the default credsmgr.conf and write the file afresh.
@@ -62,7 +62,7 @@ function install_dependencies {
     -chttps://git.openstack.org/cgit/openstack/requirements/plain/upper-constraints.txt?h=stable/pike \
     -r $OMNI_DATA_DIR/creds_manager/requirements.txt
 
-    cp -r $OMNI_DATA_DIR/credsmgrclient $CREDSMGR_DIR/lib/python2.?/site-packages/
+    cp -r $OMNI_DATA_DIR/credsmgrclient $CREDSMGR_DIR/lib/python3.?/site-packages/
 
     cd $OMNI_DATA_DIR/creds_manager
     $CREDSMGR_DIR/bin/python setup.py install
