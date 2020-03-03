@@ -18,6 +18,6 @@ oslo.service
 SQLAlchemy
 sqlalchemy-migrate
 webob
-pycparser===2.14
-pycrypto===2.6.1
-cryptography===1.5
+pycparser
+pycrypto
+cryptography
