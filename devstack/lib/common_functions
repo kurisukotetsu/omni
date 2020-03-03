@@ -36,7 +36,8 @@ function copy_omni_files {
 }
 
 function restart_services {
-    sudo systemctl restart devstack@g-api.service devstack@g-reg.service devstack@c-sch.service devstack@c-vol.service devstack@c-api.service devstack@n-cpu.service devstack@q-svc.service
+# no devstack@g-reg.service
+    sudo systemctl restart devstack@g-api.service  devstack@c-sch.service devstack@c-vol.service devstack@c-api.service devstack@n-cpu.service devstack@q-svc.service
 }
 
 # Restore xtrace
