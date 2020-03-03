@@ -6,7 +6,7 @@ keystonemiddleware
 greenlet
 MySQL-python===1.2.5;python_version=='2.7'
 pymysql
-pyOpenSSL===16.2.0
+pyOpenSSL
 oslo.config
 oslo.concurrency
 oslo.db
